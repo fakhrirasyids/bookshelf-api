@@ -58,14 +58,17 @@ const addBooksbyHandler = (request, h) => {
     if(ifSuccess) {
         const response = h.response({
             status: 'success',
-            message: 'buku berhasil ditambahkan',
+            message: 'Buku berhasil ditambahkan',
+            data: {
+              bookId: id,
+            },
         });
         response.code(201);
         return response;
     };
     const response = h.response({
         status: 'error',
-        message: 'buku gagal ditambahkan',
+        message: 'Buku gagal ditambahkan',
     });
     response.code(500);
     return response;
