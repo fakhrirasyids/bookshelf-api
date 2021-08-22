@@ -150,7 +150,7 @@ const getBooksbyHandler = (request, h) => {
 
 
 const getBooksbyIdHandler = (request, h) => {
-  const { bookId } = request.params;
+  const { id } = request.params;
 
   const book = books.filter((book) => b.id === id)[0];
 
@@ -158,7 +158,7 @@ const getBooksbyIdHandler = (request, h) => {
     const response = h.response({
       status: "success",
       data: {
-        book: [],
+        book,
       },
     });
     response.code(200);
@@ -175,7 +175,7 @@ const getBooksbyIdHandler = (request, h) => {
 
 
 const editBookbyIdHandler = (request, h) => {
-  const { bookId } = request.params;
+  const { id } = request.params;
   const { 
     name, 
     year, 
@@ -241,7 +241,7 @@ const editBookbyIdHandler = (request, h) => {
 
 
 const deleteBookbyIdHandler = (request, h) => {
-  const { bookId } = request.params;
+  const { id } = request.params;
 
   const index = books.findIndex((book) => book.id === id);
 
